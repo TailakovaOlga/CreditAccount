@@ -212,6 +212,17 @@ public class CreditAccountTest {
         Assertions.assertEquals(-30, account.yearChange());
     }
 
+    @Test // Расчет процентов при отрицательном балансе c покупкой
+    public void shouldNegativeBalanceAndAmount() {
+        CreditAccount account = new CreditAccount(
+                -200,
+                5_000,
+                15
+        );
+        account.pay(400);
+        Assertions.assertEquals(-30, account.yearChange());
+    }
+
     @Test // Расчет процентов при положительном балансе
     public void shouldPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -221,6 +232,18 @@ public class CreditAccountTest {
         );
 
         Assertions.assertEquals(0, account.yearChange());
+    }
+
+    @Test // Расчет процентов при положительном балансе c покупкой
+    public void shouldPositiveBalanceAndAmount() {
+        CreditAccount account = new CreditAccount(
+                200,
+                5_000,
+                15
+        );
+
+        account.pay(400);
+        Assertions.assertEquals(-30, account.yearChange());
     }
 
     @Test // Расчет процентов при нулевом балансе
@@ -241,9 +264,10 @@ public class CreditAccountTest {
                 5_000,
                 3
         );
-
+        account.pay(60);
         Assertions.assertEquals(1, account.yearChange());
     }
 }
+
 
 
