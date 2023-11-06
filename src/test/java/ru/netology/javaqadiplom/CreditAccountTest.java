@@ -208,7 +208,7 @@ public class CreditAccountTest {
                 5_000,
                 15
         );
-
+        account.pay(400);
         Assertions.assertEquals(-30, account.yearChange());
     }
 
@@ -237,7 +237,7 @@ public class CreditAccountTest {
     @Test // Расчет процентов с нецелочисленным результатом
     public void shouldFractionBalance() {
         CreditAccount account = new CreditAccount(
-                60,
+                0,
                 5_000,
                 3
         );
