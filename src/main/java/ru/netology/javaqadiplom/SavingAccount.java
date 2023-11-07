@@ -119,11 +119,12 @@ public class SavingAccount extends Account {
     }
 
 
+    @Override
     public int getMinBalance() {
         return minBalance;
     }
 
-
+    @Override
     public int getMaxBalance() {
         return maxBalance;
     }

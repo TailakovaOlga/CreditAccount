@@ -1,6 +1,6 @@
 package ru.netology.javaqadiplom;
 
-public class Bank {
+public class Bank extends Account {
 
     /**
      * Операция перевода указанной суммы с одного счёта на другой.
@@ -14,13 +14,23 @@ public class Bank {
      * @param amount - сумма перевода
      * @return - true если операция прошла успешно, false иначе
      */
+
+
     public boolean transfer(Account from, Account to, int amount) {
+
         if (amount <= 0) {
             return false;
         }
-        if (from.pay(amount)) {
-            to.add(amount);
-        }
-        return true;
+
+        if ((from.getBalance() - amount) >= from.getMinBalance())
+            if ((to.getBalance() + amount) <= to.getMaxBalance()) {
+
+                from.pay(amount);
+                to.add(amount);
+                return true;
+            }
+
+        return false;
     }
+
 }

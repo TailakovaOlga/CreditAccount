@@ -28,5 +28,13 @@ public class Account {
         this.rate = rate;
     }
 
+    protected int getMinBalance() {
+        return 0;
+    }
+
+    protected int getMaxBalance() {
+        return 0;
+    }
+
 
 }
