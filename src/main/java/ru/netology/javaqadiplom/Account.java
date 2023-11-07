@@ -27,4 +27,6 @@ public class Account {
     public void setRate(int rate) {
         this.rate = rate;
     }
+
+
 }

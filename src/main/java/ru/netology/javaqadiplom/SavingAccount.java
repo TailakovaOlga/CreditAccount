@@ -118,9 +118,11 @@ public class SavingAccount extends Account {
         return balance * rate / 100;
     }
 
+
     public int getMinBalance() {
         return minBalance;
     }
+
 
     public int getMaxBalance() {
         return maxBalance;
